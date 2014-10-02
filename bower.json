@@ -2,9 +2,24 @@
   "name": "canjs-workshop",
   "version": "0.0.0",
   "dependencies": {
-    "jquery": "~2.1.1",
+    "apitizer": "~0.0.4",
+    "bootstrap": "~3.2.0",
+    "fontawesome": "~4.2.0",
     "steal": "~0.3.0",
-    "CanJS": "git@github.com:bitovi/canjs#system-steal-domless",
-    "faker": "git@github.com:Marak/faker.js.git#~2.0.0"
-  }
+    "faker": "git@github.com:Marak/faker.js.git#~2.0.0",
+    "CanJS": "git@github.com:bitovi/canjs.git#system-steal-domless"
+  },
+  "homepage": "https://github.com/retro/canjs-workshop",
+  "authors": [
+    "Mihael Konjevic <konjevic@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
