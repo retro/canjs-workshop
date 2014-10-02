@@ -11,13 +11,16 @@ steal(
 'fixtures',
 'style/style.less!', function(initView, Map, Models){
 
+	var Panels = {
+		inbox : 'Inbox',
+		important : 'Important',
+		sent : 'Sent'
+	};
+
 	var AppState = Map.extend({
 		define : {
 			list : {
-				value : 'inbox',
-				set : function(newList){
-					return newList;
-				}
+				value : 'inbox'
 			},
 			messages : {
 				get : function(){
@@ -37,8 +40,8 @@ steal(
 					}
 
 					return new Models.Message.List(params);
-
-				}
+				},
+				serialize : false
 			},
 			message : {
 				get : function(){
@@ -78,13 +81,6 @@ steal(
 						this.removeAttr('messageId')
 					}
 					return val;
-				}
-			},
-			menuItems : {
-				value : {
-					inbox : 'Inbox',
-					important : 'Important',
-					sent : 'Sent'
 				},
 				serialize : false
 			},
@@ -95,30 +91,49 @@ steal(
 				}
 			}
 		},
+		init : function(){
+			var self = this;
+			Models.Message.on('created', function(ev, createdMessage){
+				if(self.attr('list') === 'sent'){
+					self.attr('messages').push(createdMessage);
+				}
+			})
+		},
 		currentListName : function(){
-			return this.attr('menuItems.' + this.attr('list'));
+			return Panels[this.attr('list')];
 		}
 	});
 
 	var appState = new AppState();
 
 	can.route.map(appState);
+
+	can.route(':list', {
+		composeMessageOpen : false
+	});
+	can.route(':list/:messageId', {
+		composeMessageOpen : false
+	});
+
 	can.route.ready();
 
-	$('#content').html(initView(appState, {
+	$('#content').html(initView({
+		state : appState,
+		panels : Panels
+	}, {
 		urlBuilder : function(type, param){
+			var params = can.route.attr();
+
 			type = can.isFunction(type) ? type() : type;
 			param = can.isFunction(param) ? param() : param;
 
 			if(type === 'list'){
-				return can.route.url({
-					list : param
-				}, false);
+				delete params.messageId;
+				params.list = param;
 			} else if(type === 'message'){
-				return can.route.url({
-					messageId : param
-				}, true);
+				params.messageId = param;
 			}
+			return can.route.url(params, false);
 		}
 	}));
 });

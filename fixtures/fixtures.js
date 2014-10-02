@@ -15,7 +15,7 @@ steal('apitizer', 'faker', function(apitizer, faker){
 				format : 'email'
 			},
 			subject : {
-				type : "string"
+				type : "string",
 			},
 			body : {
 				type : "string"
@@ -37,6 +37,16 @@ steal('apitizer', 'faker', function(apitizer, faker){
 		maximum : 1
 	});
 
+	var API = apitizer.API,
+		newAPI = API.extend({
+			create : function(params, data){
+				if(data.subject === 'error'){
+					throw this._formatException({errors: ["Error sending"], status: 406}); 
+				}
+				return API.prototype.create.apply(this, arguments);
+			}
+		})
+
 	var messageStore = apitizer.schemaStore('message', 100, {
 		id : apitizer.types.autoincrement(),
 		to : function(){
@@ -54,7 +64,7 @@ steal('apitizer', 'faker', function(apitizer, faker){
 		avatar : function(){
 			return faker.image.avatar();
 		}
-	});
+	}, newAPI);
 
 	apitizer.fixture.resource('/messages', messageStore);
 })

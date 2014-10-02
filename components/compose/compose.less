@@ -1,8 +1,7 @@
 w-compose {
 	display: block;
-	width: 200px;
+	width: 400px;
 	background: white;
-	
 	
 	.expand {
 		background: #222;
@@ -15,7 +14,6 @@ w-compose {
 	}
 
 	&.is-expanded {
-		width: 400px;
 		height: 400px;
 		-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
 		-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
@@ -29,6 +27,14 @@ w-compose {
 			height: 100%;
 			border-bottom: none;
 		}
+	}
+
+	&.has-errors {
+		height: 470px;
+	}
+
+	textarea.message-body {
+		height: 110px;
 	}
 
 	.collapse {

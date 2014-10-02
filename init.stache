@@ -1,16 +1,16 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">
-			<w-menu current="{list}" url-type="list" items="{menuItems}"></w-menu>
+			<w-menu current="{state.list}" url-type="list" items="{panels}"></w-menu>
 		</div>
-		<div class="{{#if messageId}}col-md-5{{else}}col-md-10{{/if}}">
-			<w-list name="{currentListName}" items="{messages}" current="{message}"></w-list>
+		<div class="{{#if state.messageId}}col-md-5{{else}}col-md-10{{/if}}">
+			<w-list name="{state.currentListName}" items="{state.messages}" current="{state.message}"></w-list>
 		</div>
-		{{#if messageId}}
+		{{#if state.messageId}}
 			<div class="col-md-5">
-				<w-detail message="{message}"></w-detail>
+				<w-detail message="{state.message}"></w-detail>
 			</div>
 		{{/if}}
 	</div>
 </div>
-<w-compose is-expanded="{composeMessageOpen}"><w-compose>
+<w-compose is-expanded="{state.composeMessageOpen}"><w-compose>

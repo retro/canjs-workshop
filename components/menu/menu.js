@@ -14,6 +14,7 @@ function(Component, initView){
 		helpers : {
 			isActive : function(list, opts){
 				list = can.isFunction(list) ? list() : list;
+
 				if(list === this.attr('current')){
 					return opts.fn();
 				}
