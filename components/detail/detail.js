@@ -7,7 +7,9 @@ function(Component, initView){
 		tag : 'w-detail',
 		template : initView,
 		scope : {
-			
+			clearMessage : function(){
+				this.attr('message', null);
+			}
 		}
 	})
 })

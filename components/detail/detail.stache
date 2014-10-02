@@ -1,1 +1,25 @@
-Detail Component
+{{#if message.__isPending}}
+	<div class="alert alert-info">Loading message...</div>
+{{ else }}
+
+	{{#if message.__error}}
+		<div class="alert alert-danger">{{ message.__error }}</div>
+	{{ else }}
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				{{#message.isImportant}}
+					<span class="label label-info important-label">Important</span>
+				{{/message.isImportant}}
+				<span class="label label-danger clear-message" can-click="clearMessage">&times;</span>
+				<h3 class="panel-title">{{ message.subject }}</h3>
+
+			</div>
+			<div class="panel-body">
+				{{ message.body }}
+			</div>
+		</div>
+
+	{{/if}}
+
+{{/if}}

@@ -1,1 +1,15 @@
-Compose Component
+{{#if isExpanded}}
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				New Message
+				<span class="label label-info collapse" can-click="collapse">&times;</span>
+			</h3>
+		</div>
+		<div class="panel-body">
+			Panel content
+		</div>
+	</div>
+{{else}}
+	<div class="expand" can-click="expand">Compose Message</div>
+{{/if}}

@@ -3,14 +3,14 @@
 		<div class="col-md-2">
 			<w-menu current="{list}" url-type="list" items="{menuItems}"></w-menu>
 		</div>
-		<div class="{{#if detailsOpen}}col-md-5{{else}}col-md-10{{/if}}">
-			<w-list state="{this}" name="{currentListName}" items="{currentListItems}"></w-list>
+		<div class="{{#if messageId}}col-md-5{{else}}col-md-10{{/if}}">
+			<w-list name="{currentListName}" items="{messages}" current="{message}"></w-list>
 		</div>
-		{{#if detailsOpen}}
+		{{#if messageId}}
 			<div class="col-md-5">
-				<w-details state="{this}"></w-details>
+				<w-detail message="{message}"></w-detail>
 			</div>
 		{{/if}}
 	</div>
 </div>
-<w-compose state="{this}"><w-compose>
+<w-compose is-expanded="{composeMessageOpen}"><w-compose>

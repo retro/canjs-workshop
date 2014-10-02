@@ -1,1 +1,30 @@
-<div class="alert alert-info">There are no items in the <b>{{ name }}</b> list.</div>
+{{#if items.isPending}}
+	<div class="alert alert-info">Loading <b>{{name}}</b> items...</div>
+{{else}}
+	{{#if items.length}}
+		<table class="table table-bordered table-hover">
+			<tbody>
+				{{#each items}}
+					<tr {{#isCurrent this}}class="info"{{/isCurrent}}>
+						<td class="avatar">
+							<img src="{{ avatar }}" alt="">
+						</td>
+						<td>
+							<a href="{{ urlBuilder 'message' id}}">
+								<span class="title">
+									{{#isImportant}}
+										<span class="label label-info">Important</span>
+									{{/isImportant}}
+									{{ subject }}
+								</span>
+								{{ from }}
+							</a>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	{{else}}
+		<div class="alert alert-warning">There are no items in the <b>{{name}}</b> list.</div>
+	{{/if}}
+{{/if}}
