@@ -1,3 +1,7 @@
+{{#state.messageCreated}}
+	<div class="message-created">Message sent!</div>
+{{/state}}
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-2">

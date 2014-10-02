@@ -89,11 +89,28 @@ steal(
 				set : function(val){
 					return val === 'true' || val === true;
 				}
+			},
+			messageCreated : {
+				set : function(val){
+					var self = this;
+
+					if(val){
+						clearTimeout(this.__messageCreatedTimeout);
+						this.__messageCreatedTimeout = setTimeout(function(){
+							self.attr('messageCreated', false);
+						}, 1000);
+					}
+
+					return val;
+				},
+				value : false,
+				serialize : false
 			}
 		},
 		init : function(){
 			var self = this;
 			Models.Message.on('created', function(ev, createdMessage){
+				self.attr('messageCreated', true);
 				if(self.attr('list') === 'sent'){
 					self.attr('messages').push(createdMessage);
 				}
@@ -133,6 +150,7 @@ steal(
 			} else if(type === 'message'){
 				params.messageId = param;
 			}
+
 			return can.route.url(params, false);
 		}
 	}));

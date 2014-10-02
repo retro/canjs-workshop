@@ -74,7 +74,7 @@ function(Component, initView, Models){
 				this.element.toggleClass('is-expanded', this.scope.attr('isExpanded'));
 			},
 			toggleErrorClass : function(){
-				this.element.toggleClass('has-errors', 
+				this.element.toggleClass('has-errors',
 					this.scope.attr('isExpanded') && !!this.scope.attr('error')
 				);
 			}
