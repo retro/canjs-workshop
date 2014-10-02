@@ -1,0 +1,1 @@
+<div class="alert alert-info">There are no items in the <b>{{ name }}</b> list.</div>

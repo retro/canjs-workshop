@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Compose demo page!</title>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type='text/javascript' src='../../bower_components/jquery/jquery.js'></script>
+    <script type='text/javascript' src='../../bower_components/canjs/can.jquery.js'></script>
+    <script type='text/javascript' src='../../bower_components/canjs/can.view.mustache.js'></script>
+    <script type='text/javascript' src='compose.js'></script>
+    <script type='text/javascript'>
+      var template = can.mustache('<compose hello="hello"></compose>');
+      $('#content').html(template({
+        hello: "world!"
+      }));
+    </script>
+  </body>
+</html>

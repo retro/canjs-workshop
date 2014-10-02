@@ -1,0 +1,7 @@
+<ul class="nav nav-pills nav-stacked">
+	{{#each items}}
+		<li {{#isActive @key}}class="active"{{/isActive}}>
+			<a href="{{urlBuilder urlType @key}}">{{.}}</a>
+		</li>
+	{{/each}}
+</ul>
