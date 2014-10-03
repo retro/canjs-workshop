@@ -1,0 +1,31 @@
+{
+  "name": "CanJS",
+  "repo": "bitovi/canjs",
+  "description": "Can do JavaScript MVC",
+  "main": "can.jquery.js",
+  "keywords": [
+    "mvc",
+    "component",
+    "amd"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "qunit": "~1.14.0",
+    "zepto": "~1.0.0",
+    "benchmark": "~1.0.0",
+    "requirejs": "~2.1.10",
+    "steal": "git://github.com/bitovi/steal#738455bbf1eaf28b14ed6c22cb2ae9ade7248c05",
+    "dojo": "1.8.6"
+  },
+  "homepage": "https://github.com/bitovi/canjs",
+  "_release": "3ae5e28dee",
+  "_resolution": {
+    "type": "branch",
+    "branch": "system-steal-domless",
+    "commit": "3ae5e28deee73307f2003c1ef3b880993599af66"
+  },
+  "_source": "git@github.com:bitovi/canjs.git",
+  "_target": "system-steal-domless",
+  "_originalSource": "git@github.com:bitovi/canjs.git",
+  "_direct": true
+}

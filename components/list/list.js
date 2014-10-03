@@ -7,9 +7,6 @@ function(Component, initView){
 	return Component.extend({
 		tag : 'w-list',
 		template : initView,
-		scope : {
-			
-		},
 		helpers : {
 			isCurrent : function(msg, opts){
 				msg = can.isFunction(msg) ? msg() : msg;

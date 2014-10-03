@@ -8,12 +8,14 @@
 		
 		<div class="panel panel-default">
 			<div class="panel-heading">
+
 				{{#message.isImportant}}
 					<span class="label label-info important-label">Important</span>
 				{{/message.isImportant}}
+
 				<span class="label label-danger clear-message" can-click="clearMessage">&times;</span>
 				<h3 class="panel-title">{{ message.subject }}</h3>
-
+				
 			</div>
 			<div class="panel-body">
 				{{ message.body }}

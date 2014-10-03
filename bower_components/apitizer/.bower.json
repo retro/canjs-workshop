@@ -1,0 +1,47 @@
+{
+  "name": "apitizer",
+  "version": "0.0.4",
+  "homepage": "https://github.com/retro/apitizer",
+  "authors": [
+    "Mihael Konjevic <konjevic@gmail.com>"
+  ],
+  "description": "API mocking for JavaScript apps",
+  "main": "dist/apitizer.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "blanket": "~1.1.5",
+    "taffydb": "*",
+    "Faker.js": "git@github.com:Marak/Faker.js.git#0.7.2",
+    "jquery": "~2.1.1",
+    "lodash": "~2.4.1",
+    "qunit": "~1.14.0",
+    "requirejs": "~2.1.11",
+    "tv4": "~1.0.17",
+    "Randexp.js": "https://github.com/fent/randexp.js/releases/download/v0.3.3/randexp.min.js",
+    "almond": "~0.2.9",
+    "lodash-amd": "~2.4.1"
+  },
+  "keywords": [
+    "rest",
+    "api",
+    "mock",
+    "fixture"
+  ],
+  "_release": "0.0.4",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.4",
+    "commit": "1fc8da4a3a11aeb83b5706f1eea822a35b00a917"
+  },
+  "_source": "git://github.com/retro/apitizer.git",
+  "_target": "~0.0.4",
+  "_originalSource": "apitizer",
+  "_direct": true
+}

@@ -4,14 +4,14 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-xs-2">
 			<w-menu current="{state.list}" url-type="list" items="{panels}"></w-menu>
 		</div>
-		<div class="{{#if state.messageId}}col-md-5{{else}}col-md-10{{/if}}">
+		<div class="{{#if state.messageId}}col-xs-5{{else}}col-xs-10{{/if}}">
 			<w-list name="{state.currentListName}" items="{state.messages}" current="{state.message}"></w-list>
 		</div>
 		{{#if state.messageId}}
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<w-detail message="{state.message}"></w-detail>
 			</div>
 		{{/if}}

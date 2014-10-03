@@ -94,14 +94,14 @@ steal(
 				set : function(val){
 					var self = this;
 
-					if(val){
+					if(val === true){
 						clearTimeout(this.__messageCreatedTimeout);
 						this.__messageCreatedTimeout = setTimeout(function(){
 							self.attr('messageCreated', false);
 						}, 1000);
 					}
 
-					return val;
+					return val === 'true' || val === true;
 				},
 				value : false,
 				serialize : false
