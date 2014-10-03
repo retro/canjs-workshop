@@ -7,24 +7,7 @@
 			</h3>
 		</div>
 		<div class="panel-body">
-			<form role="form" can-submit="sendMessage">
-				{{#error}}
-					<div class="alert alert-danger">{{.}}</div>
-				{{/error}}
-				<div class="form-group">
-					<label for="email">Email address</label>
-					<input type="email" class="form-control" id="email" placeholder="Enter email" can-value="newMessage.to">
-				</div>
-				<div class="form-group">
-					<label for="subject">Subject</label>
-					<input type="text" class="form-control" id="subject" placeholder="Enter Subject" can-value="newMessage.subject">
-				</div>
-				<div class="form-group">
-					<label for="body">Body</label>
-					<textarea id="body" class="form-control message-body" can-value="newMessage.body"></textarea>
-				</div>
-				<button type="submit" class="btn btn-primary">Send</button>
-			</form>
+			<w-message-form message="{newMessage}"></w-message-form>
 		</div>
 	</div>
 {{else}}
