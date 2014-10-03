@@ -4,18 +4,8 @@ steal(
 'models',
 './compose.less!',
 'can/map/define',
+'components/message-form',
 function(Component, initView, Models){
-
-	var isValid = function(msg){
-		var fields = ['subject', 'to', 'body'];
-
-		for(var i = 0; i < fields.length; i++){
-			if(!msg.attr(fields[i])){
-				return false;
-			}
-		}
-		return true;
-	}
 
 	return Component.extend({
 		tag : 'w-compose',
@@ -29,6 +19,11 @@ function(Component, initView, Models){
 				},
 				error : {
 					value : null
+				},
+				modelClass : {
+					value : function(){
+						return Models.Message
+					}
 				}
 			},
 			isExpanded : false,
@@ -38,24 +33,11 @@ function(Component, initView, Models){
 			collapse : function(){
 				this.attr('isExpanded', false);
 			},
-			sendMessage : function(ctx, el, ev){
-				var self = this,
-					message = this.attr('newMessage');
-				
-				if(isValid(message)){
-					this.attr('newMessage').save().then(function(){
-						self.attr({
-							error : null,
-							newMessage : Models.Message.newOutbound()
-						});
-					}, function(){
-						self.attr('error', 'There was a problem with the message sending.');
-					});
-				} else {
-					this.attr('error', 'Please fill in all values.');
-				}
-
-				ev.preventDefault();
+			resetForm : function(){
+				this.attr({
+					newMessage : Models.Message.newOutbound(),
+					error : null
+				})
 			}
 		},
 		events : {
@@ -77,6 +59,9 @@ function(Component, initView, Models){
 				this.element.toggleClass('has-errors',
 					this.scope.attr('isExpanded') && !!this.scope.attr('error')
 				);
+			},
+			"{scope.modelClass} created" : function(){
+				this.scope.resetForm();
 			}
 		}
 	})

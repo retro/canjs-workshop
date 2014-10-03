@@ -7,7 +7,7 @@
 			</h3>
 		</div>
 		<div class="panel-body">
-			<w-message-form message="{newMessage}"></w-message-form>
+			<w-message-form form-message="{newMessage}" error="{error}"></w-message-form>
 		</div>
 	</div>
 {{else}}
