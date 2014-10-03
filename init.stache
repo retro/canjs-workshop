@@ -13,6 +13,11 @@
 		{{#if state.messageId}}
 			<div class="col-xs-5">
 				<w-detail message="{state.message}"></w-detail>
+				{{#state.message}}
+					{{#unless __isPending}}
+						<w-reply-message parent="{this}"></w-reply-message>
+					{{/unless}}
+				{{/state.message}}
 			</div>
 		{{/if}}
 	</div>

@@ -24,6 +24,14 @@ function(Component, initView, Models){
 			
 		},
 		scope : {
+			define : {
+				showTo : {
+					value : false,
+					set : function(val){
+						return val === 'true' || val === true;
+					}
+				}
+			},
 			sendMessage : function(ctx, el, ev){
 				var self = this,
 					message = this.attr('formMessage');

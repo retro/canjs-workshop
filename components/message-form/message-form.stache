@@ -2,10 +2,12 @@
 	{{#error}}
 		<div class="alert alert-danger">{{.}}</div>
 	{{/error}}
-	<div class="form-group">
-		<label for="email">Email address</label>
-		<input type="email" class="form-control" id="email" placeholder="Enter email" can-value="formMessage.to">
-	</div>
+	{{#if showTo}}
+		<div class="form-group">
+			<label for="email">Email address</label>
+			<input type="email" class="form-control" id="email" placeholder="Enter email" can-value="formMessage.to">
+		</div>
+	{{/if}}
 	<div class="form-group">
 		<label for="subject">Subject</label>
 		<input type="text" class="form-control" id="subject" placeholder="Enter Subject" can-value="formMessage.subject">

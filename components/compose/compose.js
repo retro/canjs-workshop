@@ -7,6 +7,7 @@ steal(
 'components/message-form',
 function(Component, initView, Models){
 
+
 	return Component.extend({
 		tag : 'w-compose',
 		template : initView,

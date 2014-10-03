@@ -8,6 +8,7 @@ steal(
 'components/detail',
 'components/list',
 'components/menu',
+'components/reply-message',
 'fixtures',
 'style/style.less!', function(initView, Map, Models){
 
